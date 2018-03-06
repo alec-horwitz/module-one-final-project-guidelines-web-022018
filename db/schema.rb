@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20180306182838) do
 
   create_table "bartenders", force: :cascade do |t|
     t.string   "name"
-    t.string   "drinks"
+    t.text     "drinks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20180306182838) do
     t.integer  "customer_id"
     t.integer  "bartender_id"
     t.float    "amount_due"
-    t.string   "drinks_purchased"
+    t.integer  "drinks_purchased"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end

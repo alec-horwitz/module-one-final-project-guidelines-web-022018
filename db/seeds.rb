@@ -3,7 +3,7 @@ Tab.destroy_all
 Customer.destroy_all
 
 
-Bartender.create(name: "Bob", drinks: "Wisky Giger")
+Bartender.create(name: "Bob", drinks: "Whisky Ginger")
 Bartender.create(name: "Alice", drinks: "Screwdriver")
 
 Customer.create(name: "Emma")

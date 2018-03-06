@@ -4,7 +4,7 @@ class CreateTabs < ActiveRecord::Migration[5.0]
       t.integer :customer_id
       t.integer :bartender_id
       t.float :amount_due
-      t.string :drinks_purchased
+      t.integer :drinks_purchased
       t.timestamps
     end
   end
