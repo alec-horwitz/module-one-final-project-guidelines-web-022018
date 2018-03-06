@@ -1,0 +1,30 @@
+Required --- sql db with a tabs table
+
+On the console the user is confronted with a menu with 4 options.
+The user must enter a number into the console to select a menu option
+
+Menu option 1(C and U of CRUD)
+
+  Input --- takes a customer_name(string), Price(flout), order(string)
+  Output --- check to see if drink exists in drinks table.
+                >if it does
+                    *add customers tab to the tabs table
+
+                >if it doesn't
+                    *if the order says "surprise me"
+                        -invent a random drink and add customer's tab to tabs table
+                          (Drinks can only be added and not removed. i.e. the drinks table can only grow.)
+
+                    *if the order doesn't says "surprise me"
+                        -output "not found" and and returns to command menu
+
+Menu option 2(R of CRUD)
+  Output --- a list of all opened tabs
+
+Menu option 3(D of CRUD)
+  Input --- name of a customer that wants to pay they're tab
+  Output --- a message printed to the console thanking the customer for paying their tab
+             and the customer deleted from the table
+
+Menu option 4(Exit)
+  exits program
