@@ -16,16 +16,44 @@ class Customer < ActiveRecord::Base
     end
   end
 
-  def addTab(dranks, bart)
-    dranks.each {|drink|
-      if bart.drinks.split(", ").include?(drink)
-        if !Tab.find_by(bartender_id: bart.id, customer_id: self.id)
-          self.createTab(10, bart)
-        else
-          self.updateTab(10, bart)
-        end
+  def addTab(drink, bart)
+    cost = rand(5..40)
+    if !Tab.find_by(bartender_id: bart.id, customer_id: self.id)
+      self.createTab(cost, bart)
+    else
+      self.updateTab(cost, bart)
+    end
+    puts "Here's your "+drink+"!"
+  end
+
+  def learnNewDrink(drink, bart)
+    # binding.pry
+    if drink.downcase == "surprise me"
+      drink = bart.drinks.map {|bartDrink| bartDrink.name}.sample
+      addTab(drink, bart)
+    else
+      puts "I'm not sure what that is but I'll make it for you if you tell me how?"
+      nahs = ["nah","no", "forget", "don't", "not", "n"]
+      ans = gets.chomp
+      # binding.pry
+      if !ans.downcase.split(" ").any? {|w| nahs.include?(w)}
+        bart.drinks.push(Drink.create(name: drink))
+        addTab(drink, bart)
       else
-        puts "I Don't know what that is..."
+        puts "Whatever..."
+      end
+    end
+  end
+
+  def buyARound(dranks, bart)
+
+    # bartendDrinks = bart.drinks.map {|bartDrink| bartDrink.name}
+
+    dranks.each {|drink|
+      if bart.drinks.map {|bartDrink| bartDrink.name}.include?(drink)
+        addTab(drink, bart)
+      else
+        learnNewDrink(drink, bart)
       end
     }
   end

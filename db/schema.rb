@@ -10,16 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180306182838) do
+ActiveRecord::Schema.define(version: 20180307163447) do
+
+  create_table "bartender_drinks", id: false, force: :cascade do |t|
+    t.integer  "bartender_id", null: false
+    t.integer  "drink_id",     null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["bartender_id"], name: "index_bartender_drinks_on_bartender_id"
+    t.index ["drink_id"], name: "index_bartender_drinks_on_drink_id"
+  end
 
   create_table "bartenders", force: :cascade do |t|
     t.string   "name"
-    t.text     "drinks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "customers", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "drinks", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
