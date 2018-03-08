@@ -24,7 +24,7 @@ class Customer < ActiveRecord::Base
       self.updateTab(cost, bart)
     end
     puts "\n\n"
-    puts "Bartender "+bart.name+": \"Here's your "+drink+"!"
+    puts "Bartender "+bart.name+": \"Here's your "+drink.capitalize+"!"
   end
 
   def learnNewDrink(drink, bart)
@@ -53,10 +53,10 @@ class Customer < ActiveRecord::Base
     # bartendDrinks = bart.drinks.map {|bartDrink| bartDrink.name}
 
     dranks.each {|drink|
-      if bart.drinks.map {|bartDrink| bartDrink.name}.include?(drink)
-        addTab(drink, bart)
+      if bart.drinks.map {|bartDrink| bartDrink.name.downcase}.include?(drink.downcase)
+        addTab(drink.downcase, bart)
       else
-        learnNewDrink(drink, bart)
+        learnNewDrink(drink.downcase, bart)
       end
     }
   end

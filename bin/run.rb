@@ -58,7 +58,7 @@ end
 def place_an_order(c, bart)
   puts "\n\nBartender "+bart.name+": \"What would you like to order?\""
   puts "(Type your drinks into the console dilimited by ', 's and then press enter)"
-  order = gets.chomp.split(", ")
+  order = gets.chomp.split(",").map{|l| l.strip()}
   c.buyARound(order, bart)
   bart = Bartender.all.sample
   puts "\n\n"
