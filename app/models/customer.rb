@@ -23,7 +23,8 @@ class Customer < ActiveRecord::Base
     else
       self.updateTab(cost, bart)
     end
-    puts "Here's your "+drink+"!"
+    puts "\n\n"
+    puts "Bartender "+bart.name+": \"Here's your "+drink+"!"
   end
 
   def learnNewDrink(drink, bart)
@@ -32,7 +33,8 @@ class Customer < ActiveRecord::Base
       drink = bart.drinks.map {|bartDrink| bartDrink.name}.sample
       addTab(drink, bart)
     else
-      puts "I'm not sure what that is but I'll make it for you if you tell me how?"
+      puts "\n\n"
+      puts "Bartender "+bart.name+": \"I'm not sure what a " + drink + " is but I'll make it for you if you tell me how?"
       nahs = ["nah","no", "forget", "don't", "not", "n"]
       ans = gets.chomp
       # binding.pry
@@ -40,7 +42,8 @@ class Customer < ActiveRecord::Base
         bart.drinks.push(Drink.create(name: drink))
         addTab(drink, bart)
       else
-        puts "Whatever..."
+        puts "\n\n"
+        puts "Bartender "+bart.name+": \"Whatever..."
       end
     end
   end
