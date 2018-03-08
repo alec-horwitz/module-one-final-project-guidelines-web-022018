@@ -2,8 +2,12 @@ require_relative '../config/environment'
 require "pry"
 
 def main()
-  c = Customer.first
-  puts "Welcome"
+  puts Artii::Base.new.asciify('Bar').colorize(:blue)
+  puts Artii::Base.new(:font => 'slant').asciify('Tender').colorize(:red)
+  puts "Please Enter Your Name Into The Console To Begin: "
+  name = gets.chomp
+  c = Customer.create(name: name)
+  puts "\n\n\nWelcome " + name + "\n\n\n"
   bart = Bartender.all.sample
   exit = false
 
@@ -93,5 +97,3 @@ def close_my_tab(c, bart)
 end
 
 main()
-
-# c.buyARound(["Vodka","Merlot","surprise me","Whiskey Ginger","Plain Old Beer","Water","surprise me","Water"])
