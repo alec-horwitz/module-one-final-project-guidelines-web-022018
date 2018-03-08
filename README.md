@@ -49,4 +49,4 @@ CONTRIBUTORS GUIDE
 
 LICENSE
 ---------------------
-???
+https://github.com/alec-horwitz/module-one-final-project-guidelines-web-022018/blob/master/LICENSE.md
