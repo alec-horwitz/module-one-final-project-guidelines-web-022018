@@ -44,7 +44,7 @@ INSTALL
 
 CONTRIBUTORS GUIDE
 ---------------------
-???
+https://github.com/alec-horwitz/module-one-final-project-guidelines-web-022018/blob/master/CONTRIBUTING.md
 
 
 LICENSE
